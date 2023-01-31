@@ -1,0 +1,125 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties":{
+    "pluginLocations": {
+      "type":"object",
+      "required":true,
+      "properties":{
+        "config": {
+          "type":"object",
+          "properties":{}
+        },
+        "course": {
+          "type": "object",
+          "properties": {
+            "_toolbox": {
+              "type": "object",
+              "required": false,
+              "legend": "Toolbox",
+              "properties": {
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether the Toolbox extension is enabled or disabled."
+                },
+                "_hideDrawerIcon": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Hide Drawer Icon",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether the default Drawer icon is hidden."
+                },
+                 "_disableOnMobile": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Disable on Mobile",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether the Toolbox extension is disabled on small devices."
+                },
+                "_items": {
+                  "type": "array",
+                  "required": true,
+                  "title": "Items",
+                  "items": {
+                    "type": "object",
+                    "required": true,
+                    "properties": {
+                      "_icon": {
+                        "type": "string",
+                        "required": true,
+                        "inputType": "Text",
+                        "title": "Item Icon",
+                        "default": "",
+                        "validators": ["required"],
+                        "help": "Enter a CSS icon for this item, e.g icon-folder"
+                      },
+                      "_ariaLabel": {
+                        "type": "string",
+                        "required": true,
+                        "inputType": "Text",
+                        "title": "Item Aria Label",
+                        "default": "",
+                        "validators": [],
+                        "translatable": true
+                      },
+                      "_triggerOption": {
+                        "type": "string",
+                        "required": false,
+                        "default": "",
+                        "title": "Item Trigger",
+                        "inputType": {"type": "Select", "options": ["Show Resources", "Show Glossary", "Show Search", "Show Help", "Custom"]},
+                        "validators": [],
+                        "help": "Select a pre-defined or custom trigger for this item"
+                      },
+                      "_trigger": {
+                        "type": "string",
+                        "required": false,
+                        "inputType": "Text",
+                        "title": "Custom Trigger",
+                        "default": "",
+                        "validators": [],
+                        "help": "Enter the custom trigger for this item"
+                      },
+                      "_iconOrder": {
+                        "type": "number",
+                        "required": false,
+                        "inputType": "Number",
+                        "title": "Icon number",
+                        "default": 0,
+                        "validators": ["number"],
+                        "help": "Choose the order the icon will appear in the toolbox from left to right"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type":"object"
+        },
+        "article": {
+          "type":"object"
+        },
+        "block": {
+          "type":"object"
+        },
+        "component": {
+          "type":"object"
+        }
+      }
+    }
+  }
+}
